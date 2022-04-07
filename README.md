@@ -106,6 +106,7 @@ Tip: You can follow this [issue](https://github.com/TimothyYe/godns/issues/76) t
 * ARM Linux (Raspberry Pi, etc.)
 * Windows
 * MIPS32 platform
+* Android (built with NDK)
 
   To compile binaries for MIPS (mips or mipsle), run:
 
