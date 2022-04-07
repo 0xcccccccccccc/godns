@@ -22,6 +22,9 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.17
+      - uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r21e
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
@@ -32,3 +35,4 @@ jobs:
           args: release --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
