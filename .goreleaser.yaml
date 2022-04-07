@@ -28,7 +28,7 @@ builds:
       - -s -w -X main.Version={{.Tag}}
     -
     env:
-      - CGO_ENABLED=0
+      - CGO_ENABLED=1
       - CC=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
     dir: ./cmd/godns
     goos:
