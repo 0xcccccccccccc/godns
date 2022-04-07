@@ -7,7 +7,8 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - env:
+  - 
+  env:
       - CGO_ENABLED=0
     dir: ./cmd/godns
     goos:
@@ -25,6 +26,25 @@ builds:
       - mips64le
     ldflags:
       - -s -w -X main.Version={{.Tag}}
+    -
+    env:
+      - CGO_ENABLED=0
+      - CC=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+    dir: ./cmd/godns
+    goos:
+      - android
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+      - mips
+      - mipsle
+      - mips64
+      - mips64le
+    ldflags:
+      - -s -w -X main.Version={{.Tag}}
+      
 archives:
   - replacements:
       darwin: Darwin
